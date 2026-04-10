@@ -1,0 +1,196 @@
+---
+layout: default
+title: "Placer consciente. Sin juicios."
+description: "Comunidad para hombres que exploran nuevas formas de conexión, bienestar y placer desde la consciencia y la buena vibra."
+---
+
+<!-- ── HERO ─────────────────────────────────────────────────── -->
+<section class="bn-hero" aria-labelledby="hero-title">
+  <div class="bn-hero-ghost" aria-hidden="true">B</div>
+  <div class="container" style="width:100%">
+    <div class="bn-hero-inner">
+
+      <!-- Izquierda -->
+      <div>
+        <p class="bn-hero-eyebrow hero-anim hero-anim-1">Bators CO · Bogotá</p>
+        <h1 id="hero-title" class="bn-hero-title hero-anim hero-anim-2">
+          Placer<br><span>consciente.</span><br>Sin juicios.
+        </h1>
+        <p class="bn-hero-desc hero-anim hero-anim-3">
+          Una comunidad para hombres que exploran <strong>nuevas formas de conexión</strong>,
+          bienestar y placer desde la consciencia y la buena vibra.
+        </p>
+        <div class="bn-hero-ctas hero-anim hero-anim-4">
+          <a href="#registro" class="btn-primary">Unirme al grupo</a>
+          <a href="{{ '/eventos' | relative_url }}" class="btn-ghost">Ver próximo evento →</a>
+        </div>
+        <div class="bn-hero-divider hero-divider-line hero-anim hero-anim-5" role="separator"></div>
+      </div>
+
+      <!-- Panel stats (desktop) -->
+      <div class="bn-stats-panel hero-anim hero-anim-4" aria-label="Estadísticas de la comunidad">
+        <div class="bn-stat-cell">
+          <div class="bn-stat-label">Ediciones realizadas</div>
+          <div class="bn-stat-value">
+            <span class="stat-val-num" data-target="{{ site.data.evento.edicion }}" data-suffix="">0</span>
+            <span class="unit">ediciones</span>
+          </div>
+        </div>
+        <div class="bn-stat-cell">
+          <div class="bn-stat-label">Bators en la comunidad</div>
+          <div class="bn-stat-value">
+            <span class="stat-val-num" data-target="400" data-suffix="+">0</span>
+            <span class="unit">miembros</span>
+          </div>
+        </div>
+        {% if site.data.evento.activo %}
+        <div class="bn-next-cell">
+          <div>
+            <div class="bn-next-label">Próximo evento</div>
+            <div class="bn-next-date">{{ site.data.evento.fecha | date: "%-d %b %Y" | upcase }}</div>
+            <div class="bn-next-info">{{ site.data.evento.hora_inicio }} – {{ site.data.evento.hora_fin }} · {{ site.data.evento.lugar }}</div>
+          </div>
+          <a href="{{ '/eventos' | relative_url }}" class="bn-badge"
+             aria-label="Ver detalles del próximo evento">
+            Edición {{ site.data.evento.edicion | prepend: '0' | slice: -2, 2 }} →
+          </a>
+        </div>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS STRIP (mobile) ─────────────────────────────────── -->
+<div class="bn-stats-strip" aria-label="Estadísticas de la comunidad">
+  <div class="container" style="padding-top:0;padding-bottom:0;">
+    <div class="bn-stats-strip-inner">
+      <div class="bn-strip-cell">
+        <div class="bn-strip-label">Ediciones</div>
+        <div class="bn-strip-value">
+          <span class="stat-val-num" data-target="{{ site.data.evento.edicion }}" data-suffix="">0</span>
+          <span class="unit">ed.</span>
+        </div>
+      </div>
+      <div class="bn-strip-cell">
+        <div class="bn-strip-label">Comunidad</div>
+        <div class="bn-strip-value">
+          <span class="stat-val-num" data-target="400" data-suffix="+">0</span>
+          <span class="unit">bators</span>
+        </div>
+      </div>
+      {% if site.data.evento.activo %}
+      <div class="bn-strip-cell wide">
+        <div>
+          <div class="bn-strip-label">Próximo evento</div>
+          <div class="bn-strip-next-date">{{ site.data.evento.fecha | date: "%-d %b %Y" | upcase }}</div>
+          <div class="bn-strip-next-info">{{ site.data.evento.hora_inicio }} – {{ site.data.evento.hora_fin }} · {{ site.data.evento.lugar }}</div>
+        </div>
+        <a href="{{ '/eventos' | relative_url }}" class="bn-badge"
+           aria-label="Ver próximo evento">
+          Ed. {{ site.data.evento.edicion }} →
+        </a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- ── PILARES ───────────────────────────────────────────────── -->
+<section class="bn-pillars" aria-labelledby="pillars-title">
+  <div class="container">
+    <p class="section-label" id="pillars-title">La comunidad</p>
+    <div class="bn-pillars-grid">
+      <div class="bn-pillar">
+        <div class="bn-pillar-num" aria-hidden="true">01</div>
+        <h2 class="bn-pillar-title">Conectar y compartir</h2>
+        <p class="bn-pillar-desc">Hombres en Bogotá con interés en exploración consciente, edging y masajes tántricos.</p>
+      </div>
+      <div class="bn-pillar">
+        <div class="bn-pillar-num" aria-hidden="true">02</div>
+        <h2 class="bn-pillar-title">Aprender y disfrutar</h2>
+        <p class="bn-pillar-desc">Recursos sobre placer consciente, bienestar sexual y autocuidado masculino.</p>
+      </div>
+      <div class="bn-pillar">
+        <div class="bn-pillar-num" aria-hidden="true">03</div>
+        <h2 class="bn-pillar-title">Encuentros reales</h2>
+        <p class="bn-pillar-desc">Espacios presenciales para conocernos de manera libre y consciente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RUTAS ─────────────────────────────────────────────────── -->
+<section class="bn-rutas" aria-labelledby="rutas-title">
+  <div class="container">
+    <p class="section-label" id="rutas-title">Rutas de autoconocimiento</p>
+    <div class="bn-rutas-grid">
+      <a href="{{ '/blog/' | relative_url }}" class="bn-ruta" aria-label="Ir a artículos de Alimentación">
+        <div class="bn-ruta-ghost" aria-hidden="true">A</div>
+        <div class="bn-ruta-tag">Nutrición</div>
+        <div class="bn-ruta-title">Alimentación</div>
+        <p class="bn-ruta-desc">Lo que comes afecta tu energía y rendimiento.</p>
+        <span class="bn-ruta-arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="{{ '/blog/' | relative_url }}" class="bn-ruta" aria-label="Ir a artículos de Kegel">
+        <div class="bn-ruta-ghost" aria-hidden="true">K</div>
+        <div class="bn-ruta-tag">Ejercicio</div>
+        <div class="bn-ruta-title">Kegel</div>
+        <p class="bn-ruta-desc">Control y consciencia corporal desde adentro.</p>
+        <span class="bn-ruta-arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="{{ '/blog/' | relative_url }}" class="bn-ruta" aria-label="Ir a artículos de Mundo Bator">
+        <div class="bn-ruta-ghost" aria-hidden="true">M</div>
+        <div class="bn-ruta-tag">Cultura</div>
+        <div class="bn-ruta-title">Mundo Bator</div>
+        <p class="bn-ruta-desc">Comunidad, identidad y vida bator.</p>
+        <span class="bn-ruta-arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="{{ '/blog/' | relative_url }}" class="bn-ruta" aria-label="Ir a artículos de Edging">
+        <div class="bn-ruta-ghost" aria-hidden="true">E</div>
+        <div class="bn-ruta-tag">Práctica</div>
+        <div class="bn-ruta-title">Edging</div>
+        <p class="bn-ruta-desc">Técnicas y guías para explorar el control.</p>
+        <span class="bn-ruta-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA / REGISTRO ────────────────────────────────────────── -->
+<section class="bn-cta" id="registro" aria-labelledby="cta-title">
+  <div class="container">
+    <div class="bn-cta-inner">
+      <div>
+        <h2 id="cta-title" class="bn-cta-titulo">¿Quieres estar<br>al <span>día?</span></h2>
+        <p class="bn-cta-sub">Regístrate para acceder a eventos exclusivos y nuestro newsletter.</p>
+      </div>
+      <div class="bn-cta-btns">
+        <!-- ── FORMULARIO BREVO ──────────────────────────────────────
+             Pasos para activar:
+             1. Ve a app.brevo.com > Formularios > Crear formulario
+             2. Diseña el form y selecciona "Embedded"
+             3. Copia el código (iframe o script) y pégalo aquí,
+                reemplazando el botón placeholder de abajo.
+             Ejemplo:
+             <iframe src="https://sibforms.com/serve/MUEID-XXXXXXXX"
+                     frameborder="0" scrolling="auto"
+                     allowfullscreen style="display:block;margin-left:auto;margin-right:auto;max-width:100%;">
+             </iframe>
+        ─────────────────────────────────────────────────────────── -->
+        <button class="btn-primary" disabled
+                aria-label="Formulario de registro — próximamente disponible">
+          Registrarme
+        </button>
+        <a href="https://wa.me/57XXXXXXXXXX"
+           class="btn-ghost"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Unirse al grupo de WhatsApp de Bators CO">
+          WhatsApp →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

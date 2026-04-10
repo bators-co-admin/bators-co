@@ -1,0 +1,34 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+
+<!-- Fonts: Barlow Condensed + Barlow -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- CSS principal -->
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+<!-- SEO plugin tags -->
+{% seo %}
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="{{ '/assets/img/favicon.png' | relative_url }}">
+
+<!-- ── GOOGLE ANALYTICS ─────────────────────────────────────────
+     Pegar aquí el snippet de GA4 cuando tengas el ID de medición.
+     Pasos:
+       1. Ve a analytics.google.com > Crear propiedad
+       2. Obtén tu ID (ej: G-XXXXXXXXXX)
+       3. Reemplaza G-XXXXXXXXXX abajo y descomenta las líneas
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+─────────────────────────────────────────────────────────────── -->

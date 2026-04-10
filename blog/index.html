@@ -1,0 +1,51 @@
+---
+layout: default
+title: "Blog"
+description: "Artículos sobre placer consciente, edging, alimentación y vida bator."
+permalink: /blog/
+---
+
+<!-- ── PAGE HEADER ────────────────────────────────────────────── -->
+<header class="page-header" aria-labelledby="blog-page-title">
+  <div class="page-header-ghost" aria-hidden="true">B</div>
+  <div class="container">
+    <p class="page-eyebrow fade-in d1">Bators CO</p>
+    <h1 id="blog-page-title" class="page-title fade-in d2">Blog</h1>
+    <p class="page-desc fade-in d3">
+      Artículos sobre placer consciente, edging, alimentación y vida bator.
+    </p>
+    <div class="page-divider draw-line fade-in d4" role="separator"></div>
+  </div>
+</header>
+
+<!-- ── LISTADO DE POSTS ───────────────────────────────────────── -->
+<section class="blog-section" aria-labelledby="blog-page-title">
+  <div class="container">
+    {% if site.posts.size > 0 %}
+    <div class="blog-grid">
+      {% for post in site.posts %}
+      <article class="blog-card">
+        {% if post.categoria %}
+        <div class="blog-card-cat">{{ post.categoria }}</div>
+        {% endif %}
+        <h2 class="blog-card-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
+        {% if post.excerpt %}
+        <p class="blog-card-excerpt">
+          {{ post.excerpt | strip_html | truncatewords: 30 }}
+        </p>
+        {% endif %}
+        <time class="blog-card-date" datetime="{{ post.date | date_to_xmlschema }}">
+          {{ post.date | date: "%-d %b %Y" }}
+        </time>
+      </article>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="section-label" style="padding:64px 0;color:var(--faint);">
+      Próximamente — los primeros artículos están en camino.
+    </p>
+    {% endif %}
+  </div>
+</section>

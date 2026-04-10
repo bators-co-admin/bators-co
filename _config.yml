@@ -1,0 +1,39 @@
+title: "Bators CO"
+description: "Comunidad para hombres que exploran nuevas formas de conexión, bienestar y placer desde la consciencia."
+url: "https://bators.co"
+baseurl: ""
+lang: "es"
+
+author:
+  name: "Bators CO"
+
+# Colecciones
+collections:
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+feed:
+  path: feed.xml
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - docs/
+  - "*.html.bak"

@@ -1,0 +1,220 @@
+---
+layout: default
+title: "Eventos"
+description: "Encuentros presenciales para explorar el placer consciente en un espacio seguro, sin juicios y con buena vibra."
+permalink: /eventos/
+---
+
+<!-- ── PAGE HEADER ────────────────────────────────────────────── -->
+<header class="page-header" aria-labelledby="page-title">
+  <div class="page-header-ghost" aria-hidden="true">E</div>
+  <div class="container">
+    <p class="page-eyebrow fade-in d1">Bators Night</p>
+    <h1 id="page-title" class="page-title fade-in d2">
+      Eventos<br><span>Bators CO</span>
+    </h1>
+    <p class="page-desc fade-in d3">
+      Encuentros presenciales para explorar el placer consciente en un espacio seguro, sin juicios y con buena vibra.
+    </p>
+    <div class="page-divider draw-line fade-in d4" role="separator"></div>
+  </div>
+</header>
+
+<!-- ── PRÓXIMO EVENTO ─────────────────────────────────────────── -->
+{% if site.data.evento.activo %}
+<section class="next-event-section" aria-labelledby="next-title">
+  <div class="container">
+    <p class="next-label" id="next-title">Próximo evento</p>
+    <article class="next-event-card"
+             aria-label="Bators Night Edición {{ site.data.evento.edicion }}">
+
+      <!-- Izquierda: fecha -->
+      <div class="next-event-left">
+        <div class="next-event-edition"
+             aria-label="Edición número {{ site.data.evento.edicion }}">
+          Edición {{ site.data.evento.edicion | prepend: '0' | slice: -2, 2 }}
+        </div>
+        <div class="next-event-date-wrap">
+          <div class="next-event-date-big"
+               aria-label="Día {{ site.data.evento.fecha | date: '%-d' }}">
+            {{ site.data.evento.fecha | date: "%-d" }}
+          </div>
+          <div class="next-event-month">{{ site.data.evento.fecha | date: "%B" }}</div>
+          <div class="next-event-year">{{ site.data.evento.fecha | date: "%Y" }}</div>
+          <div class="next-event-time">
+            {{ site.data.evento.hora_inicio }} – {{ site.data.evento.hora_fin }}
+          </div>
+        </div>
+        <div class="next-event-ghost" aria-hidden="true">
+          {{ site.data.evento.edicion | prepend: '0' | slice: -2, 2 }}
+        </div>
+      </div>
+
+      <!-- Derecha: info -->
+      <div class="next-event-right">
+        <div>
+          <h2 class="next-event-title">{{ site.data.evento.titulo }}</h2>
+          <p class="next-event-desc">{{ site.data.evento.descripcion }}</p>
+        </div>
+
+        {% if site.data.evento.tags %}
+        <div class="next-event-tags" aria-label="Prácticas del evento">
+          {% for tag in site.data.evento.tags %}
+          <span class="ev-tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="next-event-meta" aria-label="Detalles del evento">
+          <div class="meta-cell">
+            <div class="meta-label">Lugar</div>
+            <div class="meta-value">{{ site.data.evento.lugar }}</div>
+            <div class="meta-sub">{{ site.data.evento.direccion }}</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Entrada</div>
+            <div class="price-big">{{ site.data.evento.precio }}</div>
+            <div class="price-sub">En taquilla</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Ambiente</div>
+            <div class="meta-value" style="font-size:16px;line-height:1.4;">
+              Lockers · Barra · Fumadores · 3 ambientes
+            </div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Requisitos</div>
+            <div class="meta-value" style="font-size:16px;line-height:1.4;">
+              Solo adultos · Documento obligatorio
+            </div>
+          </div>
+        </div>
+
+        <div class="next-event-ctas">
+          <a href="https://maps.google.com/?q={{ site.data.evento.direccion | url_encode }}"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="btn-primary"
+             aria-label="Ver cómo llegar a {{ site.data.evento.lugar }} en Google Maps">
+            Ver cómo llegar →
+          </a>
+          <button class="btn-ghost"
+                  onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'})"
+                  aria-label="Ver preguntas frecuentes y reglas del evento">
+            Ver reglas del evento
+          </button>
+        </div>
+      </div>
+
+    </article>
+  </div>
+</section>
+{% endif %}
+
+<!-- ── INFO STRIP ─────────────────────────────────────────────── -->
+<div class="info-strip" role="region" aria-label="Normas del espacio">
+  <div style="max-width:100%;">
+    <div class="info-strip-inner">
+      <div class="info-strip-cell">
+        <div class="info-strip-icon" aria-hidden="true">🔒</div>
+        <div>
+          <div class="info-strip-title">Espacio seguro</div>
+          <p class="info-strip-desc">Personal e intransferible. Se pide documento al ingreso.</p>
+        </div>
+      </div>
+      <div class="info-strip-cell">
+        <div class="info-strip-icon" aria-hidden="true">🧴</div>
+        <div>
+          <div class="info-strip-title">Sin sustancias</div>
+          <p class="info-strip-desc">Espacio libre de psicoactivos. Barra de bebidas disponible.</p>
+        </div>
+      </div>
+      <div class="info-strip-cell">
+        <div class="info-strip-icon" aria-hidden="true">📵</div>
+        <div>
+          <div class="info-strip-title">Sin cámaras</div>
+          <p class="info-strip-desc">Celulares guardados en lockers. Privacidad total.</p>
+        </div>
+      </div>
+      <div class="info-strip-cell">
+        <div class="info-strip-icon" aria-hidden="true">🤝</div>
+        <div>
+          <div class="info-strip-title">Consenso ante todo</div>
+          <p class="info-strip-desc">Sin acoso, sin presiones. Lo que pasa aquí, queda aquí.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FAQ ────────────────────────────────────────────────────── -->
+<section class="faq-section" id="faq" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="faq-header">
+      <p class="faq-title" id="faq-title">Preguntas frecuentes</p>
+    </div>
+    <div class="faq-list" role="list">
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a1">
+          <span class="faq-q-text">¿Es necesario registrarse para asistir?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" id="faq-a1" role="region">
+          <p>No necesitas registro previo. La entrada es directamente en taquilla el día del evento. Solo asegúrate de llevar tu <strong>documento de identidad</strong> — es obligatorio para ingresar y verificar mayoría de edad.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a2">
+          <span class="faq-q-text">¿Qué debo llevar al evento?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" id="faq-a2" role="region">
+          <p>Tu documento de identidad y ropa interior cómoda para el segundo piso. Tendrás un <strong>locker para guardar tus pertenencias y celular</strong>. No se permiten cámaras ni grabaciones dentro del espacio.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a3">
+          <span class="faq-q-text">¿Qué tipo de actividades hay?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" id="faq-a3" role="region">
+          <p>El evento está diseñado para explorar el placer consciente desde la curiosidad y el respeto. Hay sesiones de <strong>masajes tántricos, Linjam, edging y conexión sensorial</strong>. No es un espacio de sexo penetrativo. Las reglas las define tu cuerpo y el consenso mutuo.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a4">
+          <span class="faq-q-text">¿Hay cupos limitados?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" id="faq-a4" role="region">
+          <p>Sí, los cupos son limitados para mantener el ambiente íntimo que caracteriza a Bators Night. <strong>La entrada se maneja en taquilla</strong> hasta completar aforo. Te recomendamos llegar puntual a las {{ site.data.evento.hora_inicio }}.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a5">
+          <span class="faq-q-text">¿Puedo asistir si es mi primera vez?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" id="faq-a5" role="region">
+          <p>Por supuesto. Muchos de nuestros asistentes llegan por primera vez. El ambiente es <strong>acogedor, sin juicios y sin presiones</strong>. No tienes que participar en nada que no quieras. Si tienes dudas antes del evento, puedes escribirnos por mensaje privado.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a6">
+          <span class="faq-q-text">¿Cómo me entero de la próxima edición?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" id="faq-a6" role="region">
+          <p>Regístrate en nuestro newsletter o únete al grupo de WhatsApp. Ahí anunciamos fechas, cambios y novedades con anticipación. También seguimos activos en nuestras redes sociales.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

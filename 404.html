@@ -1,0 +1,25 @@
+---
+layout: default
+title: "Página no encontrada"
+description: "Esta página no existe o fue movida."
+permalink: /404.html
+---
+
+<section class="bn-hero"
+         style="min-height:60vh; display:flex; align-items:center;"
+         aria-labelledby="title-404">
+  <div class="bn-hero-ghost" aria-hidden="true">4</div>
+  <div class="container" style="width:100%; position:relative; z-index:2;">
+    <p class="bn-hero-eyebrow hero-anim hero-anim-1">Error 404</p>
+    <h1 id="title-404" class="bn-hero-title hero-anim hero-anim-2">
+      Esta página<br><span>no existe.</span>
+    </h1>
+    <p class="bn-hero-desc hero-anim hero-anim-3">
+      Puede que se haya movido, eliminado, o nunca haya existido.
+    </p>
+    <div class="bn-hero-ctas hero-anim hero-anim-4">
+      <a href="{{ '/' | relative_url }}" class="btn-primary">Ir al inicio</a>
+      <a href="{{ '/eventos' | relative_url }}" class="btn-ghost">Ver eventos →</a>
+    </div>
+  </div>
+</section>

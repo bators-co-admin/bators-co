@@ -1,0 +1,136 @@
+backend:
+  name: github
+  repo: TU-USUARIO/bators-co   # ← REEMPLAZA con tu usuario de GitHub (ej: sebs/bators-co)
+  branch: main
+  # OAuth proxy gratuito — no requiere servidor propio.
+  # Instrucciones: https://github.com/sveltia/sveltia-cms-auth
+  base_url: https://sveltia-cms-auth.pages.dev
+
+# Imágenes se suben al repo en esta carpeta
+media_folder: "assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+# Idioma del editor
+locale: "es"
+
+collections:
+
+  # ── EVENTO (singleton) ──────────────────────────────────────
+  # Edita _data/evento.yml desde el CMS visual.
+  # Activa/desactiva el evento con el campo "activo".
+  - name: "evento"
+    label: "Próximo Evento"
+    description: "Datos del próximo Bators Night. Desactiva 'Activo' para ocultar el evento del sitio."
+    files:
+      - name: "evento"
+        label: "Evento actual"
+        file: "_data/evento.yml"
+        fields:
+          - label: "Título del evento"
+            name: titulo
+            widget: string
+            hint: "Ej: Más instinto, más presencia."
+
+          - label: "Número de edición"
+            name: edicion
+            widget: number
+            value_type: int
+            min: 1
+
+          - label: "Fecha"
+            name: fecha
+            widget: datetime
+            format: "YYYY-MM-DD"
+            date_format: "DD MMM YYYY"
+            time_format: false
+
+          - label: "Hora inicio"
+            name: hora_inicio
+            widget: string
+            hint: "Formato 24h — ej: 18:00"
+
+          - label: "Hora fin"
+            name: hora_fin
+            widget: string
+            hint: "Formato 24h — ej: 22:00"
+
+          - label: "Lugar (nombre del sitio)"
+            name: lugar
+            widget: string
+            hint: "Ej: Kinky Club"
+
+          - label: "Dirección completa"
+            name: direccion
+            widget: string
+            hint: "Ej: Cl. 58 Bis #10-07, Chapinero, Bogotá"
+
+          - label: "Precio de entrada"
+            name: precio
+            widget: string
+            hint: "Ej: 30K o Gratis"
+
+          - label: "Descripción"
+            name: descripcion
+            widget: text
+
+          - label: "Tags / Prácticas"
+            name: tags
+            widget: list
+            summary: "{{fields.tag}}"
+            field:
+              label: Tag
+              name: tag
+              widget: string
+
+          - label: "Activo (mostrar en el sitio)"
+            name: activo
+            widget: boolean
+            default: true
+            hint: "Desactiva para ocultar el próximo evento del home y la página de eventos."
+
+  # ── BLOG POSTS ──────────────────────────────────────────────
+  - name: "posts"
+    label: "Blog — Posts"
+    description: "Artículos del blog. Se publican en /blog/."
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "/blog/{{year}}/{{month}}/{{day}}/{{slug}}/"
+    fields:
+      - label: "Título"
+        name: title
+        widget: string
+
+      - label: "Fecha de publicación"
+        name: date
+        widget: datetime
+        format: "YYYY-MM-DD"
+        date_format: "DD MMM YYYY"
+        time_format: false
+
+      - label: "Categoría"
+        name: categoria
+        widget: select
+        options:
+          - { label: "Alimentación",  value: "Alimentación" }
+          - { label: "Kegel",         value: "Kegel" }
+          - { label: "Mundo Bator",   value: "Mundo Bator" }
+          - { label: "Edging",        value: "Edging" }
+
+      - label: "Resumen (excerpt)"
+        name: excerpt
+        widget: text
+        required: false
+        hint: "Aparece en la tarjeta del listado del blog. Máximo 2 oraciones."
+
+      - label: "Contenido"
+        name: body
+        widget: markdown
+
+      - label: "Imagen destacada"
+        name: imagen
+        widget: image
+        required: false
+        media_library:
+          config:
+            multiple: false
