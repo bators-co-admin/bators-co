@@ -4,6 +4,82 @@
   {% include head.html %}
 </head>
 <body>
+
+  <!-- ── PASSWORD GATE ──────────────────────────────────────────
+       Cambia la contraseña en: const PASS = "TU-CLAVE-AQUI"
+       Usa sessionStorage → solo se pide una vez por pestaña.
+  ─────────────────────────────────────────────────────────────── -->
+  <div id="gate" style="
+    display:none;
+    position:fixed;inset:0;z-index:9999;
+    background:#0e0e0c;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Barlow Condensed',sans-serif;
+  ">
+    <div style="width:100%;max-width:380px;padding:0 24px;text-align:center;">
+      <div style="font-size:clamp(80px,15vw,120px);font-weight:900;color:#1d1d1b;line-height:1;margin-bottom:8px;letter-spacing:-4px;">B</div>
+      <p style="font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7d9068;margin-bottom:32px;">Bators CO · Acceso privado</p>
+      <input id="gate-input" type="password"
+        placeholder="Contraseña"
+        autocomplete="current-password"
+        style="
+          width:100%;background:#191917;border:1px solid #222220;
+          color:#f0ece2;font-family:'Barlow Condensed',sans-serif;
+          font-size:18px;letter-spacing:2px;padding:16px 20px;
+          outline:none;margin-bottom:10px;
+        "
+        aria-label="Contraseña de acceso"
+      >
+      <div id="gate-error" style="
+        font-size:13px;letter-spacing:2px;text-transform:uppercase;
+        color:#c0392b;margin-bottom:10px;min-height:20px;
+      "></div>
+      <button onclick="checkPass()" style="
+        width:100%;background:#7d9068;color:#0e0e0c;
+        font-family:'Barlow Condensed',sans-serif;
+        font-size:16px;font-weight:700;letter-spacing:2px;
+        text-transform:uppercase;padding:16px;border:none;
+        cursor:pointer;min-height:48px;
+      ">Entrar</button>
+    </div>
+  </div>
+
+  <script>
+    // ── CAMBIAR CONTRASEÑA AQUÍ ──────────────────────────────
+    var PASS = "bators2026";
+    // ────────────────────────────────────────────────────────
+
+    var gate = document.getElementById('gate');
+    var input = document.getElementById('gate-input');
+    var error = document.getElementById('gate-error');
+
+    if (sessionStorage.getItem('bn-auth') !== '1') {
+      gate.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') checkPass();
+    });
+
+    function checkPass() {
+      if (input.value === PASS) {
+        sessionStorage.setItem('bn-auth', '1');
+        gate.style.opacity = '0';
+        gate.style.transition = 'opacity .3s';
+        setTimeout(function() {
+          gate.style.display = 'none';
+          document.body.style.overflow = '';
+        }, 300);
+      } else {
+        error.textContent = 'Contraseña incorrecta';
+        input.value = '';
+        input.focus();
+        setTimeout(function() { error.textContent = ''; }, 2500);
+      }
+    }
+  </script>
+
   {% include nav.html %}
   <main id="main-content">
     {{ content }}
