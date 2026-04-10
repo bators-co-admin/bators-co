@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: TU-USUARIO/bators-co   # ← REEMPLAZA con tu usuario de GitHub (ej: sebs/bators-co)
+  repo: bators-co-admin/bators-co   # ← REEMPLAZA con tu usuario de GitHub (ej: sebs/bators-co)
   branch: main
   # OAuth proxy gratuito — no requiere servidor propio.
   # Instrucciones: https://github.com/sveltia/sveltia-cms-auth
