@@ -42,7 +42,7 @@ permalink: /eventos/
           <div class="next-event-month">{{ site.data.evento.fecha | date: "%B" }}</div>
           <div class="next-event-year">{{ site.data.evento.fecha | date: "%Y" }}</div>
           <div class="next-event-time">
-            {{ site.data.evento.hora_inicio }} – {{ site.data.evento.hora_fin }}
+            {% include hora.html valor=site.data.evento.hora_inicio %} – {% include hora.html valor=site.data.evento.hora_fin %}
           </div>
         </div>
         <div class="next-event-ghost" aria-hidden="true">
@@ -191,7 +191,7 @@ permalink: /eventos/
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
         <div class="faq-answer" id="faq-a4" role="region">
-          <p>Sí, los cupos son limitados para mantener el ambiente íntimo que caracteriza a Bators Night. <strong>La entrada se maneja en taquilla</strong> hasta completar aforo. Te recomendamos llegar puntual a las {{ site.data.evento.hora_inicio }}.</p>
+          <p>Sí, los cupos son limitados para mantener el ambiente íntimo que caracteriza a Bators Night. <strong>La entrada se maneja en taquilla</strong> hasta completar aforo. Te recomendamos llegar puntual a las {% include hora.html valor=site.data.evento.hora_inicio %}.</p>
         </div>
       </div>
 

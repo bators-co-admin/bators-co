@@ -48,7 +48,7 @@ description: "Comunidad para hombres que exploran nuevas formas de conexión, bi
           <div>
             <div class="bn-next-label">Próximo evento</div>
             <div class="bn-next-date">{{ site.data.evento.fecha | date: "%-d %b %Y" | upcase }}</div>
-            <div class="bn-next-info">{{ site.data.evento.hora_inicio }} – {{ site.data.evento.hora_fin }} · {{ site.data.evento.lugar }}</div>
+            <div class="bn-next-info">{% include hora.html valor=site.data.evento.hora_inicio %} – {% include hora.html valor=site.data.evento.hora_fin %} · {{ site.data.evento.lugar }}</div>
           </div>
           <a href="{{ '/eventos' | relative_url }}" class="bn-badge"
              aria-label="Ver detalles del próximo evento">
@@ -85,7 +85,7 @@ description: "Comunidad para hombres que exploran nuevas formas de conexión, bi
         <div>
           <div class="bn-strip-label">Próximo evento</div>
           <div class="bn-strip-next-date">{{ site.data.evento.fecha | date: "%-d %b %Y" | upcase }}</div>
-          <div class="bn-strip-next-info">{{ site.data.evento.hora_inicio }} – {{ site.data.evento.hora_fin }} · {{ site.data.evento.lugar }}</div>
+          <div class="bn-strip-next-info">{% include hora.html valor=site.data.evento.hora_inicio %} – {% include hora.html valor=site.data.evento.hora_fin %} · {{ site.data.evento.lugar }}</div>
         </div>
         <a href="{{ '/eventos' | relative_url }}" class="bn-badge"
            aria-label="Ver próximo evento">

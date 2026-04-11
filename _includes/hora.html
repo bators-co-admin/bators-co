@@ -1,0 +1,7 @@
+{% comment %}
+  Convierte hora desde _data/evento.yml a formato HH:MM.
+  YAML 1.1 parsea "18:00" como número sexagesimal (1080).
+  Este include maneja ambos casos: string "18:00" y número 1080.
+  Uso: {% include hora.html valor=site.data.evento.hora_inicio %}
+{% endcomment %}
+{% assign h_str = include.valor | prepend: '' %}{% if h_str contains ':' %}{{ h_str }}{% else %}{% assign h = h_str | plus: 0 | divided_by: 60 %}{% assign m = h_str | plus: 0 | modulo: 60 %}{{ h | prepend: "0" | slice: -2, 2 }}:{{ m | prepend: "00" | slice: -2, 2 }}{% endif %}
