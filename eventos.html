@@ -39,7 +39,7 @@ permalink: /eventos/
                aria-label="Día {{ site.data.evento.fecha | date: '%-d' }}">
             {{ site.data.evento.fecha | date: "%-d" }}
           </div>
-          <div class="next-event-month">{{ site.data.evento.fecha | date: "%B" }}</div>
+          <div class="next-event-month">{% include mes.html fecha=site.data.evento.fecha %}</div>
           <div class="next-event-year">{{ site.data.evento.fecha | date: "%Y" }}</div>
           <div class="next-event-time">
             {% include hora.html valor=site.data.evento.hora_inicio %} – {% include hora.html valor=site.data.evento.hora_fin %}
