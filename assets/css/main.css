@@ -1130,3 +1130,31 @@ body {
   /* Footer */
   .bn-footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
 }
+
+/* ── BLOG FILTERS ──────────────────────────────────────────── */
+.blog-filters {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg2);
+  padding: 20px 0;
+}
+.blog-filter-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.filter-pill {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: color .2s, border-color .2s;
+  min-height: 36px;
+}
+.filter-pill:hover { color: var(--olive); border-color: var(--olive2); }
+.filter-pill.active { color: var(--olive); border-color: var(--olive); }

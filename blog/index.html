@@ -18,13 +18,26 @@ permalink: /blog/
   </div>
 </header>
 
+<!-- ── FILTROS DE CATEGORÍA ──────────────────────────────────────── -->
+<div class="blog-filters" id="blog-filters" aria-label="Filtrar por categoría">
+  <div class="container">
+    <div class="blog-filter-pills">
+      <button class="filter-pill active" data-cat="">Todos</button>
+      <button class="filter-pill" data-cat="Alimentación">Alimentación</button>
+      <button class="filter-pill" data-cat="Kegel">Kegel</button>
+      <button class="filter-pill" data-cat="Mundo Bator">Mundo Bator</button>
+      <button class="filter-pill" data-cat="Edging">Edging</button>
+    </div>
+  </div>
+</div>
+
 <!-- ── LISTADO DE POSTS ───────────────────────────────────────── -->
 <section class="blog-section" aria-labelledby="blog-page-title">
   <div class="container">
     {% if site.posts.size > 0 %}
-    <div class="blog-grid">
+    <div class="blog-grid" id="blog-grid">
       {% for post in site.posts %}
-      <article class="blog-card">
+      <article class="blog-card" data-categoria="{{ post.categoria }}">
         {% if post.categoria %}
         <div class="blog-card-cat">{{ post.categoria }}</div>
         {% endif %}
@@ -37,11 +50,14 @@ permalink: /blog/
         </p>
         {% endif %}
         <time class="blog-card-date" datetime="{{ post.date | date_to_xmlschema }}">
-          {{ post.date | date: "%-d %b %Y" }}
+          {{ post.date | date: "%-d" }} {% include mes.html fecha=post.date %} {{ post.date | date: "%Y" }}
         </time>
       </article>
       {% endfor %}
     </div>
+    <p id="blog-empty" style="display:none;padding:48px 0;color:var(--faint);" class="section-label">
+      No hay artículos en esta categoría todavía.
+    </p>
     {% else %}
     <p class="section-label" style="padding:64px 0;color:var(--faint);">
       Próximamente — los primeros artículos están en camino.
@@ -49,3 +65,40 @@ permalink: /blog/
     {% endif %}
   </div>
 </section>
+
+<script>
+(function () {
+  var pills  = document.querySelectorAll('.filter-pill');
+  var cards  = document.querySelectorAll('.blog-card');
+  var empty  = document.getElementById('blog-empty');
+
+  function filterBy(cat) {
+    var visible = 0;
+    cards.forEach(function (card) {
+      var match = !cat || card.dataset.categoria === cat;
+      card.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+    empty.style.display = visible === 0 ? 'block' : 'none';
+
+    pills.forEach(function (p) {
+      p.classList.toggle('active', p.dataset.cat === cat);
+    });
+
+    // Actualiza la URL sin recargar
+    var url = cat ? ('?cat=' + encodeURIComponent(cat)) : window.location.pathname;
+    history.replaceState(null, '', url);
+  }
+
+  // Lee el parámetro ?cat= al cargar (desde el home)
+  var params = new URLSearchParams(window.location.search);
+  var initCat = params.get('cat') || '';
+  filterBy(initCat);
+
+  pills.forEach(function (pill) {
+    pill.addEventListener('click', function () {
+      filterBy(pill.dataset.cat);
+    });
+  });
+})();
+</script>
