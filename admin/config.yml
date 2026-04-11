@@ -4,7 +4,7 @@ backend:
   branch: main
   # OAuth proxy gratuito — no requiere servidor propio.
   # Instrucciones: https://github.com/sveltia/sveltia-cms-auth
-  base_url: https://sveltia-cms-auth.pages.dev
+  base_url: https://sveltia-cms-auth.bators-col.workers.dev
 
 # Imágenes se suben al repo en esta carpeta
 media_folder: "assets/img/uploads"
