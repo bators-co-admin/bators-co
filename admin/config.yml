@@ -46,13 +46,19 @@ collections:
 
           - label: "Hora inicio"
             name: hora_inicio
-            widget: string
-            hint: "Formato 24h — ej: 18:00"
+            widget: datetime
+            format: "HH:mm"
+            date_format: false
+            time_format: "HH:mm"
+            hint: "Ej: 18:00"
 
           - label: "Hora fin"
             name: hora_fin
-            widget: string
-            hint: "Formato 24h — ej: 22:00"
+            widget: datetime
+            format: "HH:mm"
+            date_format: false
+            time_format: "HH:mm"
+            hint: "Ej: 22:00"
 
           - label: "Lugar (nombre del sitio)"
             name: lugar
