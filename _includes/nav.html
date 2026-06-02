@@ -29,11 +29,12 @@
          role="listitem">Blog</a>
     </div>
 
-    <button class="bn-nav-cta"
-            onclick="document.getElementById('registro') && document.getElementById('registro').scrollIntoView({behavior:'smooth'})"
-            aria-label="Registrarme en Bators CO">
+    <a href="{{ '/#registro' | relative_url }}"
+       class="bn-nav-cta"
+       onclick="if(document.getElementById('registro')){event.preventDefault();document.getElementById('registro').scrollIntoView({behavior:'smooth'});}"
+       aria-label="Registrarme en Bators CO">
       Registrarme
-    </button>
+    </a>
 
   </div>
 </nav>
