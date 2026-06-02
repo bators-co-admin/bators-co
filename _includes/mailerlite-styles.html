@@ -325,19 +325,24 @@
 #mlb2-33212744.ml-form-embedContainer .ml-form-embedBody .ml-form-embedSubmit button:hover {
   background-color: #8fa077 !important;
 }
-/* Checkbox */
+/* Checkbox — visible sobre fondo oscuro */
 #mlb2-33212744.ml-form-embedContainer .ml-form-embedBody .ml-form-checkboxRow .label-description,
 #mlb2-33212744.ml-form-embedContainer .ml-form-embedBody .ml-form-checkboxRow .label-description p {
-  color: #6e6e62 !important;
-  font-size: 11px !important;
-  line-height: 17px !important;
+  color: #b8b4a8 !important;
+  font-size: 12px !important;
+  line-height: 18px !important;
 }
 #mlb2-33212744.ml-form-embedContainer .ml-form-embedBody .ml-form-checkboxRow .label-description::before {
   background-color: #191917 !important;
-  border-color: #2a2a27 !important;
+  border-color: #7d9068 !important;
+  border-width: 2px !important;
 }
 #mlb2-33212744.ml-form-embedContainer .ml-form-embedBody .ml-form-checkboxRow input[type=checkbox]:checked~.label-description::before {
   background-color: #7d9068 !important;
   border-color: #7d9068 !important;
+}
+/* Highlight de error cuando no está marcado */
+#mlb2-33212744 .ml-form-checkboxRow.ml-error .label-description::before {
+  border-color: #c0392b !important;
 }
 </style>
