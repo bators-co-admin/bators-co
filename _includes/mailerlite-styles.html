@@ -325,24 +325,44 @@
 #mlb2-33212744.ml-form-embedContainer .ml-form-embedBody .ml-form-embedSubmit button:hover {
   background-color: #8fa077 !important;
 }
-/* Checkbox — visible sobre fondo oscuro */
-#mlb2-33212744.ml-form-embedContainer .ml-form-embedBody .ml-form-checkboxRow .label-description,
-#mlb2-33212744.ml-form-embedContainer .ml-form-embedBody .ml-form-checkboxRow .label-description p {
+/* ── CHECKBOX ADA COMPLIANCE ─────────────────────────────── */
+
+/* Texto del label — contraste 7:1 (AAA) */
+#mlb2-33212744.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description,
+#mlb2-33212744.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description p {
   color: #b8b4a8 !important;
   font-size: 12px !important;
-  line-height: 18px !important;
+  line-height: 19px !important;
 }
-#mlb2-33212744.ml-form-embedContainer .ml-form-embedBody .ml-form-checkboxRow .label-description::before {
-  background-color: #191917 !important;
-  border-color: #7d9068 !important;
-  border-width: 2px !important;
+
+/* Caja: cuadrada (no círculo), borde blanco alto contraste, 18×18 px */
+#mlb2-33212744.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::before {
+  background-color: transparent !important;
+  border: 2px solid #f0ece2 !important;
+  border-radius: 3px !important;
+  width: 18px !important;
+  height: 18px !important;
+  top: 2px !important;
 }
-#mlb2-33212744.ml-form-embedContainer .ml-form-embedBody .ml-form-checkboxRow input[type=checkbox]:checked~.label-description::before {
+
+/* Checked: relleno oliva + tilde blanca (contraste 3.2:1 — pasa AA non-text) */
+#mlb2-33212744.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow input[type=checkbox]:checked~.label-description::before {
   background-color: #7d9068 !important;
   border-color: #7d9068 !important;
 }
-/* Highlight de error cuando no está marcado */
-#mlb2-33212744 .ml-form-checkboxRow.ml-error .label-description::before {
-  border-color: #c0392b !important;
+
+/* Focus ring para navegación por teclado */
+#mlb2-33212744.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow input[type=checkbox]:focus~.label-description::before,
+#mlb2-33212744.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow input[type=checkbox]:focus-visible~.label-description::before {
+  box-shadow: 0 0 0 3px rgba(125, 144, 104, 0.45) !important;
+}
+
+/* Error: borde rojo cuando se intenta enviar sin marcar */
+#mlb2-33212744.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow.ml-error .label-description::before {
+  border-color: #e05c4b !important;
+}
+#mlb2-33212744.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow.ml-error .label-description,
+#mlb2-33212744.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow.ml-error .label-description p {
+  color: #e05c4b !important;
 }
 </style>
