@@ -2,6 +2,7 @@
 layout: default
 title: "Placer consciente. Sin juicios."
 description: "Comunidad para hombres que exploran nuevas formas de conexión, bienestar y placer desde la consciencia y la buena vibra."
+mailerlite: true
 ---
 
 <!-- ── HERO ─────────────────────────────────────────────────── -->
@@ -161,35 +162,21 @@ description: "Comunidad para hombres que exploran nuevas formas de conexión, bi
 <!-- ── CTA / REGISTRO ────────────────────────────────────────── -->
 <section class="bn-cta" id="registro" aria-labelledby="cta-title">
   <div class="container">
-    <div class="bn-cta-inner">
+    <div class="bn-cta-inner" style="align-items:flex-start;">
       <div>
         <h2 id="cta-title" class="bn-cta-titulo">¿Quieres estar<br>al <span>día?</span></h2>
-        <p class="bn-cta-sub">Regístrate para acceder a eventos exclusivos y nuestro newsletter.</p>
-      </div>
-      <div class="bn-cta-btns">
-        <!-- ── FORMULARIO BREVO ──────────────────────────────────────
-             Pasos para activar:
-             1. Ve a app.brevo.com > Formularios > Crear formulario
-             2. Diseña el form y selecciona "Embedded"
-             3. Copia el código (iframe o script) y pégalo aquí,
-                reemplazando el botón placeholder de abajo.
-             Ejemplo:
-             <iframe src="https://sibforms.com/serve/MUEID-XXXXXXXX"
-                     frameborder="0" scrolling="auto"
-                     allowfullscreen style="display:block;margin-left:auto;margin-right:auto;max-width:100%;">
-             </iframe>
-        ─────────────────────────────────────────────────────────── -->
-        <button class="btn-primary" disabled
-                aria-label="Formulario de registro — próximamente disponible">
-          Registrarme
-        </button>
+        <p class="bn-cta-sub">Inscríbete para acceder a eventos exclusivos y nuestro newsletter.</p>
         <a href="https://chat.whatsapp.com/K6a6gXfpSl44q8ddoqStHP?mode=gi_t"
            class="btn-ghost"
            target="_blank"
            rel="noopener noreferrer"
+           style="margin-top:24px;display:inline-flex;"
            aria-label="Unirse al grupo de WhatsApp de Bators CO">
           WhatsApp →
         </a>
+      </div>
+      <div class="bn-cta-form">
+        {% include mailerlite-form.html %}
       </div>
     </div>
   </div>

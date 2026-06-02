@@ -618,6 +618,7 @@ body {
 .bn-cta-titulo span { color: var(--olive); }
 .bn-cta-sub { font-size: 18px; color: var(--muted); line-height: 1.6; max-width: 360px; }
 .bn-cta-btns { display: flex; gap: 12px; flex-shrink: 0; flex-wrap: wrap; }
+.bn-cta-form { flex-shrink: 0; width: 100%; max-width: 400px; }
 
 /* ── PAGE HEADER (eventos + blog + post) ───────────────────── */
 .page-header {
