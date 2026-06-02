@@ -5,79 +5,67 @@
 </head>
 <body>
 
-  <!-- ── PASSWORD GATE ──────────────────────────────────────────
-       Cambia la contraseña en: const PASS = "TU-CLAVE-AQUI"
-       Usa sessionStorage → solo se pide una vez por pestaña.
+  <!-- ── AGE GATE ────────────────────────────────────────────────
+       Verificación de mayoría de edad. sessionStorage → una vez por pestaña.
   ─────────────────────────────────────────────────────────────── -->
-  <div id="gate" style="
+  <div id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title" style="
     display:none;
     position:fixed;inset:0;z-index:9999;
-    background:#0e0e0c;
+    background:rgba(14,14,12,0.97);
     align-items:center;justify-content:center;
     font-family:'Barlow Condensed',sans-serif;
   ">
-    <div style="width:100%;max-width:380px;padding:0 24px;text-align:center;">
-      <div style="font-size:clamp(80px,15vw,120px);font-weight:900;color:#1d1d1b;line-height:1;margin-bottom:8px;letter-spacing:-4px;">B</div>
-      <p style="font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7d9068;margin-bottom:32px;">Bators CO · Acceso privado</p>
-      <input id="gate-input" type="password"
-        placeholder="Contraseña"
-        autocomplete="current-password"
-        style="
-          width:100%;background:#191917;border:1px solid #222220;
-          color:#f0ece2;font-family:'Barlow Condensed',sans-serif;
-          font-size:18px;letter-spacing:2px;padding:16px 20px;
-          outline:none;margin-bottom:10px;
-        "
-        aria-label="Contraseña de acceso"
-      >
-      <div id="gate-error" style="
-        font-size:13px;letter-spacing:2px;text-transform:uppercase;
-        color:#c0392b;margin-bottom:10px;min-height:20px;
-      "></div>
-      <button onclick="checkPass()" style="
+    <div style="width:100%;max-width:360px;padding:0 28px;text-align:center;">
+      <div style="font-size:clamp(72px,14vw,110px);font-weight:900;color:#1d1d1b;line-height:1;margin-bottom:4px;letter-spacing:-4px;" aria-hidden="true">B</div>
+      <p style="font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7d9068;margin-bottom:28px;">Bators CO</p>
+      <h2 id="gate-title" style="font-size:clamp(28px,6vw,38px);font-weight:900;text-transform:uppercase;color:#f0ece2;line-height:1.1;margin-bottom:16px;letter-spacing:-0.5px;">
+        Contenido para<br>mayores de 18
+      </h2>
+      <p style="font-size:15px;color:#8a8a7e;line-height:1.6;margin-bottom:32px;font-family:'Barlow',sans-serif;font-weight:400;">
+        Este sitio contiene contenido para adultos.<br>¿Confirmas que eres mayor de 18 años?
+      </p>
+      <button id="gate-yes" style="
         width:100%;background:#7d9068;color:#0e0e0c;
         font-family:'Barlow Condensed',sans-serif;
-        font-size:16px;font-weight:700;letter-spacing:2px;
+        font-size:15px;font-weight:700;letter-spacing:2px;
         text-transform:uppercase;padding:16px;border:none;
-        cursor:pointer;min-height:48px;
-      ">Entrar</button>
+        cursor:pointer;min-height:48px;margin-bottom:10px;
+      ">Sí, soy mayor de 18</button>
+      <button id="gate-no" style="
+        width:100%;background:transparent;color:#6e6e62;
+        font-family:'Barlow Condensed',sans-serif;
+        font-size:13px;font-weight:600;letter-spacing:2px;
+        text-transform:uppercase;padding:12px;
+        border:1px solid #222220;cursor:pointer;min-height:44px;
+      ">No, salir</button>
     </div>
   </div>
 
   <script>
-    // ── CAMBIAR CONTRASEÑA AQUÍ ──────────────────────────────
-    var PASS = "bators2026";
-    // ────────────────────────────────────────────────────────
+    (function() {
+      var gate = document.getElementById('gate');
 
-    var gate = document.getElementById('gate');
-    var input = document.getElementById('gate-input');
-    var error = document.getElementById('gate-error');
+      if (sessionStorage.getItem('bn-age') !== '1') {
+        gate.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
 
-    if (sessionStorage.getItem('bn-auth') !== '1') {
-      gate.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-
-    input.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') checkPass();
-    });
-
-    function checkPass() {
-      if (input.value === PASS) {
-        sessionStorage.setItem('bn-auth', '1');
+      function dismiss() {
+        sessionStorage.setItem('bn-age', '1');
         gate.style.opacity = '0';
         gate.style.transition = 'opacity .3s';
         setTimeout(function() {
           gate.style.display = 'none';
           document.body.style.overflow = '';
         }, 300);
-      } else {
-        error.textContent = 'Contraseña incorrecta';
-        input.value = '';
-        input.focus();
-        setTimeout(function() { error.textContent = ''; }, 2500);
       }
-    }
+
+      document.getElementById('gate-yes').addEventListener('click', dismiss);
+
+      document.getElementById('gate-no').addEventListener('click', function() {
+        window.location.href = 'https://www.google.com';
+      });
+    })();
   </script>
 
   {% include nav.html %}
