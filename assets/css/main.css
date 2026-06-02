@@ -206,6 +206,9 @@ body {
   cursor: pointer;
   transition: background .2s;
   min-height: 44px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
 }
 .bn-nav-cta:hover,
 .bn-nav-cta:focus { background: #8fa077; outline: 2px solid var(--text); outline-offset: 2px; }
